@@ -49,7 +49,7 @@ crashlytics-build.properties
 fabric.properties
 .idea/httpRequests
 .idea/caches/build_file_checksums.ser
-.idea
+.idea/
 *.iml
 out
 gen

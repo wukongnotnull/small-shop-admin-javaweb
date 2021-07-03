@@ -47,7 +47,7 @@ public interface ProviderDao {
 	/**
 	 * 修改用户信息
 	 * @param connection
-	 * @param user
+	 * @param provider
 	 * @return
 	 * @throws Exception
 	 */

@@ -425,7 +425,7 @@ input[type='reset']:active, input[type='reset']:focus, .providerView a:hover, .p
 	width:52px;
 	height:25px;
 	line-height:25px;
-	font-weight:20px;
+	font-weight:bolder;
 }
 .page-go-form
 {
