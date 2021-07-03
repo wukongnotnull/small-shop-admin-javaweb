@@ -40,8 +40,7 @@ public class LoginServlet extends HttpServlet {
 			response.sendRedirect(request.getContextPath()+ "/jsp/frame.jsp");
 		}else{
 			//页面跳转（login.jsp）带出提示信息--转发
-			String error = "tip:username or password error, 请重试";
-			request.setAttribute("errorKey", error);
+			request.setAttribute("errorKey", "用户名或者密码错误，请重新再试！");
 			request.getRequestDispatcher("/login.jsp").forward(request, response);
 		}
 	}

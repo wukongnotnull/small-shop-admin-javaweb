@@ -77,7 +77,7 @@ public class UserDaoImpl implements UserDao{
 		List<User> userList = new ArrayList<User>();
 		if(connection != null){
 			StringBuffer sql = new StringBuffer();
-			sql.append("select u.*,r.roleName as userRoleName from shop_user u,smbms_role r where u.userRole = r.id");
+			sql.append("select u.*,r.roleName as userRoleName from shop_user u,shop_role r where u.userRole = r.id");
 			List<Object> list = new ArrayList<Object>();
 			if(!StringUtils.isNullOrEmpty(userName)){
 				sql.append(" and u.userName like ?");
@@ -133,7 +133,7 @@ public class UserDaoImpl implements UserDao{
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
 		if(null != connection){
-			String sql = "select u.*,r.roleName as userRoleName from shop_user u,smbms_role r where u.id=? and u.userRole = r.id";
+			String sql = "select u.*,r.roleName as userRoleName from shop_user u,shop_role r where u.id=? and u.userRole = r.id";
 			Object[] params = {id};
 			rs = BaseDao.execute(connection, pstm, rs, sql, params);
 			if(rs.next()){
@@ -199,7 +199,7 @@ public class UserDaoImpl implements UserDao{
 		int count = 0;
 		if(connection != null){
 			StringBuffer sql = new StringBuffer();
-			sql.append("select count(1) as count from shop_user u,smbms_role r where u.userRole = r.id");
+			sql.append("select count(1) as count from shop_user u,shop_role r where u.userRole = r.id");
 			List<Object> list = new ArrayList<Object>();
 			if(!StringUtils.isNullOrEmpty(userName)){
 				sql.append(" and u.userName like ?");

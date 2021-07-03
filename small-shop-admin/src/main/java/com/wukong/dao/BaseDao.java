@@ -41,7 +41,7 @@ public class BaseDao {
 	
 	/**
 	 * 获取数据库连接
-	 * @return
+	 * @return  Connection 对象
 	 */
 	public static Connection getConnection(){
 		Connection connection = null;
@@ -49,30 +49,33 @@ public class BaseDao {
 			Class.forName(driver);
 			connection = DriverManager.getConnection(url, user, password);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 		
 		return connection;
 	}
+
+
 	/**
 	 * 查询操作
 	 * @param connection
-	 * @param pstm
 	 * @param rs
 	 * @param sql
 	 * @param params
 	 * @return
 	 */
-	public static ResultSet execute(Connection connection,PreparedStatement pstm,ResultSet rs,
-			String sql,Object[] params) throws Exception{
-		pstm = connection.prepareStatement(sql);
+	public static ResultSet execute(Connection connection, PreparedStatement pstm ,ResultSet rs,
+									String sql, Object[] params) throws Exception{
+		 pstm = connection.prepareStatement(sql);
 		for(int i = 0; i < params.length; i++){
 			pstm.setObject(i+1, params[i]);
 		}
 		rs = pstm.executeQuery();
 		return rs;
 	}
+
+
 	/**
 	 * 更新操作
 	 * @param connection

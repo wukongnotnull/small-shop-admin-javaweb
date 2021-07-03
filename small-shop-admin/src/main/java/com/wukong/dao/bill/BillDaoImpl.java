@@ -43,7 +43,7 @@ public class BillDaoImpl implements BillDao {
 		List<Bill> billList = new ArrayList<Bill>();
 		if(connection != null){
 			StringBuffer sql = new StringBuffer();
-			sql.append("select b.*,p.proName as providerName from shop_bill b, smbms_provider p where b.providerId = p.id");
+			sql.append("select b.*,p.proName as providerName from shop_bill b, shop_provider p where b.providerId = p.id");
 			List<Object> list = new ArrayList<Object>();
 			if(!StringUtils.isNullOrEmpty(bill.getProductName())){
 				sql.append(" and productName like ?");
@@ -103,7 +103,7 @@ public class BillDaoImpl implements BillDao {
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
 		if(null != connection){
-			String sql = "select b.*,p.proName as providerName from shop_bill b, smbms_provider p " +
+			String sql = "select b.*,p.proName as providerName from shop_bill b, shop_provider p " +
 					"where b.providerId = p.id and b.id=?";
 			Object[] params = {id};
 			rs = BaseDao.execute(connection, pstm, rs, sql, params);
