@@ -1,3 +1,7 @@
+.idea
+*.iml
+out
+gen
 *.class
 *.log
 *.ctxt
@@ -38,11 +42,4 @@ crashlytics-build.properties
 fabric.properties
 .idea/httpRequests
 .idea/caches/build_file_checksums.ser
-<<<<<<< HEAD
-.idea
-=======
-.idea/
->>>>>>> 7d67519bdaa538e4dd6e8057d0f81febb78429f3
-*.iml
-out
-gen
+target
